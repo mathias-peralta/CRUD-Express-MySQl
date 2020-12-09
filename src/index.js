@@ -10,15 +10,15 @@ app.set('view engine','ejs');
 app.set('views', path.join(__dirname,'views'));
 
 //middleware
-/*
+
 app.use(myConnection(mysql, {
-    host:'localhost',
-    database: 'prueba',
-    user:'root',
-    password: 'unida1010',
+    host:'brdenyskfgwsw8g8mjxy-mysql.services.clever-cloud.com',
+    database: 'brdenyskfgwsw8g8mjxy',
+    user:'uclrggccwuutcjaq',
+    password: 'LDEUZezXa9ZUATyA3YI1',
     port:'3306'
 },'single'))
-*/
+
 
 //routes
 app.use(require('./routes/indexRouter'));
