@@ -18,17 +18,31 @@ controller.list = (req, res) => {
     })
     
 }
-
+//Guarda un nuevo registro en la BD
 controller.save = (req, res) => {
     const data = req.body;
     req.getConnection((err, conn) => {
-        conn.query('INSERT INTO customer ?', [data], (err, customer) => {
-            if(customer) {
-                console.log(customer);
+        conn.query('INSERT INTO customer set ?', [data], (err, customer) => {
+            if(err) {
+                console.log(err);
             }
-            res.send('OK!');
+            console.log(customer);
+            res.redirect('/')
         })
     })
 }
 
+//Elimina un registro 
+controller.delete = (req, res) => {
+    const { id } = req.params;
+    console.log(id);
+    req.getConnection((err, conn) => {
+        conn.query('DELETE FROM customer WHERE id = ?', [id], (err, customer) => {
+            if(err) {
+                console.log(err);
+            }
+            res.redirect('/');
+        })
+    })
+}
 module.exports = controller;
