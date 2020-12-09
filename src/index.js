@@ -3,7 +3,7 @@ const app = express();
 const path = require('path');
 const mysql = require('mysql');
 const myConnection = require('express-myconnection');
-
+const { urlencoded } = require('express');
 //settings
 app.set('port', process.env.PORT  || 3000);
 app.set('view engine','ejs');
@@ -18,7 +18,7 @@ app.use(myConnection(mysql, {
     password: 'LDEUZezXa9ZUATyA3YI1',
     port:'3306'
 },'single'))
-
+app.use(urlencoded({extended : false}));
 
 //routes
 app.use(require('./routes/indexRouter'));
