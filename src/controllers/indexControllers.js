@@ -64,15 +64,11 @@ controller.update = (req, res) => {
 }
 
 controller.edit = (req, res) => {
-    const{ id }= req.params.id;
+    const { id } = req.params;
     const newCustomer = req.body;
     req.getConnection((err, conn) => {
-        conn.query('UPDATE customer set ? WHERE id = ?', [newCustomer, id], (err, customer) => {
-            if(err) {
-                console.log(err);
-            }
-            console.log('this is a ', newCustomer);
-            res.redirect('/');
+        conn.query('UPDATE customer set ? WHERE id = ?', [newCustomer, id], (err, rows ) => {
+            res.redirect('/')
         })
     })
 }
