@@ -8,4 +8,7 @@ router.post('/add', controller.save);
 
 router.get('/delete/:id', controller.delete);
 
+router.get('/update/:id', controller.update);
+
+router.post('/edit/:id', controller.edit);
 module.exports = router;

@@ -45,4 +45,35 @@ controller.delete = (req, res) => {
         })
     })
 }
+
+//Editar un registro
+controller.update = (req, res) => {
+    const  id  = req.params.id;
+    req.getConnection((err, conn) => {
+        conn.query('SELECT * FROM customer where id = ?', [id], (err, customer) => {
+            if(err) {
+                console.log(err);
+            }
+            console.log(customer);
+            res.render('edit', {
+                data: customer[0]
+            });
+
+        })
+    })
+}
+
+controller.edit = (req, res) => {
+    const{ id }= req.params.id;
+    const newCustomer = req.body;
+    req.getConnection((err, conn) => {
+        conn.query('UPDATE customer set ? WHERE id = ?', [newCustomer, id], (err, customer) => {
+            if(err) {
+                console.log(err);
+            }
+            console.log('this is a ', newCustomer);
+            res.redirect('/');
+        })
+    })
+}
 module.exports = controller;
