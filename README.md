@@ -12,6 +12,7 @@
             <p>Este es un simple ejemplo de una aplicación que nos permite, guardar, editar y eliminar datos utilizando Express como framework del lado del servidor para gestionar las peticiones
                 y MySQL para guardar los datos. 
             </p>
+            <p> Puedes encontrar el sitio web en el siguiente enlace: https://prueba-mp.herokuapp.com/</p>
             <p></p>
             <img src="./img/CRUD-inicio.PNG" alt="" class="img-responsive w-100">
             <br/>
