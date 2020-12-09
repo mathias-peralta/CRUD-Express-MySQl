@@ -1,6 +1,7 @@
 const controller = {};
 
 controller.list = (req, res) => {
+    /*
     req.getConnection((err, conn) => {
         if(err) {
             console.log(err);
@@ -13,6 +14,8 @@ controller.list = (req, res) => {
             res.render('index');
         })
     })
+    */
+    res.render('index');
 }
 
 module.exports = controller;
